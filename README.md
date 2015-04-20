@@ -19,17 +19,19 @@ Start your image binding the external ports 80 in all interfaces to your contain
 
     docker run -d -p 80:80 brainboxweb/docker-centos-apache-php
 
-Test your deployment:
+Test your deployment...
+
+... if you're running native:
 
     curl http://localhost/
     
     
-Test your deployment... you're using Boot2Docker:
+... if you're using Boot2Docker:
 
     curl http://<Boot2Docker IP address>/
     
 
-Hello world!
+The result should be a ```Hello world!``` page.
 
 
 Loading your custom PHP application
@@ -38,7 +40,7 @@ Loading your custom PHP application
 This image can be used as a base image for your PHP application. Create a new `Dockerfile` in your 
 PHP application folder with the following contents:
 
-    FROM bb/docker-centos-apache-php
+    FROM brainboxweb/docker-centos-apache-php
 
 After that, build the new `Dockerfile`:
 
@@ -50,12 +52,14 @@ And test it:
 
         
 
-Test your deployment:
+Test your deployment...
+
+... if you're running native:
 
     curl http://localhost/
     
     
-And test it... you're using Boot2Docker:
+... you're running Boot2Docker:
 
     curl http://<Boot2Docker IP address>/
     
