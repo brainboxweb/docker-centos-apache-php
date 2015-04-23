@@ -18,20 +18,7 @@ RUN mkdir /data/db
 RUN pecl install -f mongo-1.5.4
 RUN echo extension=mongo.so >> /etc/php.d/mongo.ini
 
-# RUN easy_install supervisor
-# ADD supervisord.conf /etc/supervisord.conf
-
-
-
-
-
-RUN rm -rf /var/lib/apt/lists/*
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
-
-
-# RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf && \
-RUN echo "ServerName localhost" >> /etc/httpd/conf/httpd.conf && \
-    sed -i "s/variables_order.*/variables_order = \"EGPCS\"/g" /etc/php.ini
 
 # Add image configuration and scripts
 ADD run.sh /run.sh
